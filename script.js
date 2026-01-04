@@ -1,5 +1,8 @@
 function convertToRoman(num) {
-  	const obj = [
+	if(num <= 0)
+		return "";
+	
+  	const map = [
      ['M', 1000],
     ['CM', 900],
     ['D', 500],
@@ -17,10 +20,10 @@ function convertToRoman(num) {
 
   //your code here
 	let result="";
-	for(const [roman,value] of obj){
-          while(num>=value){
-              result+=roman;
-			  num=num-value;	  
+	for(const [roman, value] of map){
+          while(num >= value){
+              result += roman;
+			  num -= value ;	  
 		  }
 	}
 	return result;
