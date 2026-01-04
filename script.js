@@ -9,6 +9,19 @@ function convertToRoman(num) {
       6:['I', 1]
     };
 
+	const M = obj[0][0], D = obj[1][0], C = obj[2][0],  L = obj[3][0], X = obj[4][0], V = obj[5][0], I = [6][0];
+
+	const map = [[M, 1000], [C + M, 9000], [D, 500], [C + D, 400], [C, 100], [X + C, 90], [L, 50], [X + L, 40], [X, 10], [I + X, 9], [V, 5], [I + V, 4], [I, 1],];
+
+	let res = '';
+	for (const [sym, val] of map){
+		while (num >= val){
+			res += sym;
+			num -= val;
+		}
+	}
+	return res;
+
   //your code here
 
 }
